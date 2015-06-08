@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="page-heading">
+  <template>
+    <div class="page-header">
+      <h1>{{main}}<small>{{sub}}</small></h1>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "page-heading",
+    properties: {
+      main: {
+        type: 'String'
+      },
+      sub: {
+        type: 'String'
+      }
+    }
+  });
+</script>

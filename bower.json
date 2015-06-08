@@ -1,0 +1,20 @@
+{
+  "name": "polymer-fun",
+  "version": "0.0.0",
+  "homepage": "https://github.com/roykolak/polymer-fun",
+  "authors": [
+    "Roy Kolak <roy.kolak@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~1.0.3",
+    "bootstrap": "~3.3.4"
+  }
+}
