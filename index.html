@@ -5,12 +5,27 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link rel="import" href="elements/page-heading.html">
+    <link rel="import" href="elements/picture-frame.html">
   </head>
   <body>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <page-heading main="Welcome to Polymer" sub="It's pretty cool"></page-heading>
+          <p>
+            this is a <a href="#">link</a> to prove that the link styling applied in picture-frame did not leak out of it's dom module
+          </p>
+          <div class="row">
+            <div class="col-xs-3">
+              <picture-frame src="http://funfitnessfast.com/wp/wp-content/uploads/2014/10/bucket.jpg"></picture-frame>
+            </div>
+            <div class="col-xs-3">
+              <picture-frame src="http://www.northerntool.com/images/product/2000x2000/229/22902_2000x2000.jpg"></picture-frame>
+            </div>
+            <div class="col-xs-3">
+              <picture-frame></picture-frame>
+            </div>
+          </div>
         </div>
       </div>
     </div>

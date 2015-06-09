@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="picture-frame">
+  <style>
+    a {
+      border: 3px solid #CCC;
+    }
+  </style>
+  <template>
+    <a href="#" class="thumbnail">
+      <img src="{{src}}">
+    </a>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "picture-frame",
+    properties: {
+      src: {
+        type: 'String',
+        value: 'http://lifestylehack.net/files/2015/02/bucket-agro.png'
+      }
+    }
+  });
+</script>
