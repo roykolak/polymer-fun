@@ -1,0 +1,89 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="color-selector">
+  <style>
+    :host {
+      height: 60px;
+      display: block;
+    }
+
+    #colors,
+    #selectedColor {
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+    }
+
+    #selectedColor {
+      width: 200px;
+      background: #CCC;
+      font-size: 20px;
+      line-height: 60px;
+      text-align: center;
+      transition: background-color 0.5s ease;
+    }
+
+    #colors a {
+      width: 60px;
+      height: 100%;
+      display: inline-block;
+      background: #CCC;
+      border: 2px solid transparent;
+    }
+    #colors .selected {
+      border: 2px solid #333;
+    }
+  </style>
+  <template>
+    <div id="colors">
+      <template is="dom-repeat" items="{{colors}}">
+        <a href="#" class="color" data-color$="{{item}}" style$="{{cssBackground(item)}}"></a>
+      </template>
+    </div>
+    <div id="selectedColor">{{prompt}}</div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "color-selector",
+
+    properties: {
+      prompt: String,
+      colors: {
+        type: 'Array',
+        value: ['#B0171F', '#DC143C', '#FF3E96', '#FF6EB4'],
+      },
+      selectedColor: {
+        type: 'String',
+        observer: 'onColorChange'
+      }
+    },
+
+    cssBackground: function(color) {
+      return 'background: ' + color;
+    },
+
+    listeners: {
+      'colors.click': 'onColorClick'
+    },
+
+    onColorClick: function(ev) {
+      ev.preventDefault();
+
+      var selectedColor = Polymer.dom(this.$.colors).querySelector('.selected');
+      if(selectedColor) {
+        selectedColor.classList.remove('selected');
+      }
+
+      var el = ev.target;
+      el.classList.add('selected');
+      this.selectedColor = el.dataset.color;
+    },
+
+    onColorChange: function(newValue, oldValue) {
+      this.$.selectedColor.innerHTML = newValue;
+      this.$.selectedColor.style.background = newValue;
+    }
+  });
+</script>
