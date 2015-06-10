@@ -5,6 +5,7 @@
     :host {
       height: 60px;
       display: block;
+      margin: 0.25em;
     }
 
     #colors,
@@ -15,7 +16,7 @@
     }
 
     #selectedColor {
-      width: 200px;
+      width: 250px;
       background: #CCC;
       font-size: 20px;
       line-height: 60px;
@@ -52,7 +53,18 @@
       prompt: String,
       colors: {
         type: 'Array',
-        value: ['#B0171F', '#DC143C', '#FF3E96', '#FF6EB4'],
+        value: function (i) {
+
+          var defaultColors = ['#B0171F', '#DC143C', '#FF3E96', '#FF6EB4'];
+
+          try {
+            var customColors = JSON.parse(i.colors);
+            i.colors = customColors;
+          }
+          catch(e) {
+            return defaultColors;
+          }
+        },
       },
       selectedColor: {
         type: 'String',
