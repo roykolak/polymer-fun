@@ -9,8 +9,11 @@
   </style>
   <template>
   <div class="clone-boys">
-    <clone-boy name="Mario" content="{{content}}"></clone-boy>
-    <clone-boy name="Luigi" content="{{content}}"></clone-boy>
+    <user-view first-name="{{managerName}}"></user-view>
+    <!-- Sets <clone-boy>.content = this.sharedContent; -->
+    <clone-boy name="Marios" content="{{sharedContent}}"></clone-boy>
+    <clone-boy name="Luigi" content="{{sharedContent}}"></clone-boy>
+    <button></button>
   </div>
   </template>
 </dom-module>
@@ -19,7 +22,7 @@
   Polymer({
     is: "clone-boys",
     properties: {
-      content: {
+      sharedContent: {
         type: 'String',
         value: 'we look the same!'
       }
