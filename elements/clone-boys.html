@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./clone-boy.html">
+
+<dom-module id="clone-boys">
+  <style type="text/css">
+    clone-boy {
+      display: inline-block;
+    }
+  </style>
+  <template>
+  <div class="clone-boys">
+    <clone-boy name="Mario" content="{{content}}"></clone-boy>
+    <clone-boy name="Luigi" content="{{content}}"></clone-boy>
+  </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "clone-boys",
+    properties: {
+      content: {
+        type: 'String',
+        value: 'we look the same!'
+      }
+    }
+  });
+</script>

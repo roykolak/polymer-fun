@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="clone-boy">
+  <style type="text/css">
+    h1 { font-size: 2rem; }
+  </style>
+  <template>
+    <div class="clone-boy">
+      <h1>{{name}}</h1>
+      <input value="{{content::input}}"/>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "clone-boy",
+    properties: {
+      content: {
+        type: 'String',
+        notify: true //for two-way binding
+      }
+    }
+  });
+</script>
