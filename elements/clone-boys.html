@@ -9,7 +9,6 @@
   </style>
   <template>
   <div class="clone-boys">
-    <user-view first-name="{{managerName}}"></user-view>
     <template is="dom-repeat" items="{{names}}">
       <!-- Sets <clone-boy>.content = this.sharedContent; -->
       <clone-boy name="{{item}}" content="{{sharedContent}}"></clone-boy>
