@@ -8,5 +8,5 @@ gulp.task('serve', function () {
     server: true
   });
 
-  gulp.watch(['elements/*.html'], browserSync.reload);
+  gulp.watch(['elements/*.html', 'index.html'], browserSync.reload);
 });
