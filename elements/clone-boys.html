@@ -1,0 +1,52 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./clone-boy.html">
+
+<dom-module id="clone-boys">
+  <style type="text/css">
+    clone-boy {
+      display: inline-block;
+    }
+  </style>
+  <template>
+  <div class="clone-boys">
+    <template is="dom-repeat" items="{{names}}">
+      <!-- Sets <clone-boy>.content = this.sharedContent; -->
+      <clone-boy name="{{item}}" content="{{sharedContent}}"></clone-boy>
+    </template>
+    <button id="clone">clone!</button>
+  </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "clone-boys",
+    properties: {
+      names: {
+        type: Array,
+        value: [ "clone boy 1", "clone boy 2" ]
+      },
+      sharedContent: {
+        type: String,
+        value: 'we look the same!'
+      }
+    },
+    listeners: {
+      "clone.click": "onCloneClick"
+    },
+    listTheBoys: function() {
+      return this.names.slice(0, -1).join(", ") +
+        " and " + this.names[this.names.length - 1]
+    },
+    onCloneClick: function(event) {
+      var msg = this.listTheBoys() +
+        " have a new baby brother!\n" +
+        "What's his name?";
+      var newBoy = window.prompt(msg);
+      if (newBoy) {
+        this.names.push(newBoy);
+        console.log("I wish I could render " + this.listTheBoys())
+      }
+    }
+  });
+</script>
