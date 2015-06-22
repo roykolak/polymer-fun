@@ -8,6 +8,8 @@
     <link rel="import" href="elements/page-heading.html">
     <link rel="import" href="elements/picture-frame.html">
     <link rel="import" href="elements/color-selector.html">
+    <link rel="import" href="elements/ui-experiment.html">
+    <link rel="import" href="elements/ui-variant.html">
   </head>
   <body>
     <div class="container-fluid">
@@ -32,6 +34,36 @@
           <color-selector prompt="Select a (default) color"></color-selector>
           <color-selector colors='["#ccc", "#111"]' prompt="Select a (custom) color"></color-selector>
           <clone-boys names='["Mario", "Luigi"]'></clone-boys>
+
+          <hr />
+          <h3>A/B testing tags, sure why not</h3>
+          <div class="row">
+            <div class="col-xs-4">
+              <p>Hardcoded variant</p>
+              <ui-experiment variant="control">
+                <ui-variant id="control">
+                  <h3>Control</h3>
+                </ui-variant>
+                <ui-variant id="variant1">
+                  <h3>Variant 1</h3>
+                </ui-variant>
+              </ui-experiment>
+            </div>
+            <div class="col-xs-4">
+              <p>Random variant</p>
+              <ui-experiment>
+                <ui-variant id="control">
+                  <h3>Control</h3>
+                </ui-variant>
+                <ui-variant id="variant1">
+                  <h3>Variant 1</h3>
+                </ui-variant>
+                <ui-variant id="variant2">
+                  <h3>Variant 2</h3>
+                </ui-variant>
+              </ui-experiment>
+            </div>
+          </div>
         </div>
       </div>
     </div>
